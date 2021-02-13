@@ -3,4 +3,4 @@ Omni Sight allows you to add and track your favorite crypto-currencies through a
 
 ## User Dashboard
  
- ![url](./Project-assests/User-home-page-project2.png)
+ ![img](./Project-assests/User-home-page-project2.png)
