@@ -3,3 +3,4 @@ Omni Sight allows you to add and track your favorite crypto-currencies through a
 
 ## User Dashboard
  Omni-Sight/Projects assets/User home page project2.png 
+ ![alt text](https://github.com/Fletch8/Omni-Sight/blob/main//User home page project2.png?raw=true)
