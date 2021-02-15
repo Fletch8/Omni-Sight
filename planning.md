@@ -40,3 +40,7 @@ Omni Sight is for Traders and investors interested in trading crypto-currencies.
 
 ### User Profile-page
 ![Profile](./assets/User-profile-page.png)
+
+
+## Figma preview
+- https://www.figma.com/proto/0T4Ou1avjEob6NdvAou85p/Omni-Sight?node-id=1%3A2&scaling=min-zoom
