@@ -4,6 +4,7 @@ const layouts = require('express-ejs-layouts');
 const session = require('express-session');
 const passport = require('./config/ppConfig'); //
 const flash = require('connect-flash');
+const db = require('./models')
 
 
 const app = express();
@@ -47,7 +48,10 @@ app.use((req, res, next) => {
 app.use('/auth', require('./controllers/auth'));
 
 app.get('/', (req, res) => {
-  res.render('index');
+  db.currency.findAll()
+    .then(function(currencies) {
+        res.render("index", { currencies: currencies })
+    })  
 });
 
 app.get('/about', (req, res) => {
