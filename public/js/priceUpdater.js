@@ -23,8 +23,12 @@
 //         console.log(console.error();)
 //     }
 // }
-const fetch = require('node-fetch')
-fetch('localhost:3000/price/update/BTC')
-.then(response =>{
-    return response.text()
+// const fetch = require('node-fetch')
+const p = document.getElementsByClassName('coin')[0]
+console.log(p)
+//console.log(p1[0].innerHTML)
+fetch('/price/update/BTC')
+.then(response =>response.text())
+.then(data=>{
+    console.log(data)
 })

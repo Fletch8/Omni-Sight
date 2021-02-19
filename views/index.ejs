@@ -1,5 +1,8 @@
-<script src="js/priceUpdater.js"></script> 
 <h2>Omni Sight</h2>
-<p>BTC/USD: 50,000$</p>
-<p>LTC/USD: 250$</p>
-<p>DOGE/USD: MOON$</p>
+<p class="coin">BTC/USD: 50,000$</p>
+<p class="coin">LTC/USD: 250$</p>
+<p class="coin">DOGE/USD: MOON$</p>
+<script >
+    let data = document.getElementsByClassName('coin').item(0)
+    data.textContent = "250,000$"
+</script> 

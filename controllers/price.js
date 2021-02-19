@@ -8,6 +8,7 @@ const router = express.Router();
 
 router.get('/update/:currency', (req, res) => {    
     const currency = req.params.currency
+    console.log(req.params, currency, "***************************************")
     const CoinMarketCap = require('coinmarketcap-api')
     const apiKey = process.env.COIN_API_KEY
     console.log(apiKey)
@@ -15,9 +16,10 @@ router.get('/update/:currency', (req, res) => {
 
     client.getQuotes({symbol: `${currency}`})
     .then((quote)=>{
-        console.log(quote.data.currency.quote)})
-        .catch(console.error)
-    res.redirect('/')
+        let currPrice = quote.data[`${currency}`].quote.USD.price
+        console.log(quote.data[`${currency}`].quote.USD.price)
+        res.send(String(currPrice))
+    }).catch(console.error) 
 })
 
 module.exports = router;
