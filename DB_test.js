@@ -48,13 +48,13 @@ const db = require('./models')
 //   console.log('API call error:', err.message);
 // });
 
-// require('dotenv').config();
-// const CoinMarketCap = require('coinmarketcap-api')
-// const apiKey = process.env.COIN_API_KEY
-// console.log(apiKey)
-// const client = new CoinMarketCap(apiKey)
+require('dotenv').config();
+const CoinMarketCap = require('coinmarketcap-api')
+const apiKey = process.env.COIN_API_KEY
+console.log(apiKey)
+const client = new CoinMarketCap(apiKey)
 
-// client.getQuotes({symbol: 'BTC'})
-// .then((quote)=>{
-//     console.log(quote.data.BTC.quote)})
-//     .catch(console.error)
+client.getQuotes({symbol: 'BTC'})
+.then((quote)=>{
+    console.log(quote.data.BTC.quote.USD.price)})
+    .catch(console.error)

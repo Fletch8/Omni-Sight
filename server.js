@@ -46,6 +46,8 @@ app.use((req, res, next) => {
 
 // Controllers
 app.use('/auth', require('./controllers/auth'));
+app.use('/price', require('./controllers/price'));
+
 
 app.get('/', (req, res) => {
   db.currency.findAll()
@@ -67,6 +69,7 @@ const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
   console.log(`🎧 You're listening to the smooth sounds of port ${PORT} 🎧`);
 });
+
 
 module.exports = server;
 
