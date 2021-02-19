@@ -7,6 +7,7 @@ const flash = require('connect-flash');
 const db = require('./models')
 
 
+
 const app = express();
 app.set('view engine', 'ejs');
 
@@ -53,7 +54,7 @@ app.get('/', (req, res) => {
   db.currency.findAll()
     .then(function(currencies) {
         console.log(req.route.path)
-        res.render("index", { currencies: currencies })
+        res.render("index", { currencies: currencies, path: req.route.path })
     })  
 });
 
