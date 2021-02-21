@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
   db.currency.findAll()
     .then(function(currencies) {
         console.log(req.route.path)
-        res.render("index", { currencies: currencies, path: req.route.path })
+        res.render("index", { currencies: currencies })
     })  
 });
 

@@ -1,8 +1,42 @@
 <h2>Omni Sight</h2>
-<p class="coin">BTC/USD: 50,000$</p>
-<p class="coin">LTC/USD: 250$</p>
-<p class="coin">DOGE/USD: MOON$</p>
-<script >
-    let data = document.getElementsByClassName('coin').item(0)
-    data.textContent = "250,000$"
-</script> 
+
+<% if (currentUser) { %>          
+    <% currencies.forEach(function(currency) { %>
+        <div>
+            <p class="coin" id="<%= currency.name %>"><%= currency.name %></p>
+        </div>        
+    <% }) %>
+    <script >
+        // inital update
+        for (let i = 0; i < 4; i++){
+                const coins = document.getElementsByClassName('coin').item(i)            
+                fetch(`/price/update/${coins.id}`).then(response =>response.text()).then(data=>{
+                     console.log(coins.textContent, data)
+                     console.log(coins.id)
+                     coins.textContent = `${coins.id}: ${data}`
+                      // update dom with values
+                })       
+        }     
+        // 10 sec updates may need to change to 30s   
+        setInterval(()=>{
+            for (let i = 0; i < 4; i++){
+                const coins = document.getElementsByClassName('coin').item(i)            
+                fetch(`/price/update/${coins.id}`).then(response =>response.text()).then(data=>{
+                     console.log(coins.textContent, data)
+                     console.log(coins.id)
+                     coins.textContent = `${coins.id}: ${data}`
+                      // update dom with values
+                })       
+            }
+        }, 10000)
+    </script>     
+<% } %>
+
+<% if (currentUser) { %>
+    <label for="currency">Add Favorite Currency</label>
+    <select name="currencyId" id="currency" class="form-control" width="50px"required>      
+    <% currencies.forEach(function(currency) { %>
+        <option value="<%= currency.id %>"><%= currency.name %></option>
+    <% }) %>
+<% } %>
+<hr>
