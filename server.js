@@ -67,6 +67,11 @@ app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile', { id, name, email });
 });
 
+app.post('/addToFavorites', isLoggedIn, (req, res) => {
+  userId = req.user.id
+  res.redirect('/')
+})
+
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {
   console.log(`🎧 You're listening to the smooth sounds of port ${PORT} 🎧`);
@@ -74,18 +79,3 @@ const server = app.listen(PORT, () => {
 
 
 module.exports = server;
-
-
-
-// espn.com
-
-// basketball/college
-// basketball/nba
-// basketball/gleague
-// basketball/europe
-
-// football
-// baseball
-// ...
-
-
