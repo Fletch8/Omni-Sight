@@ -67,8 +67,17 @@ app.get('/profile', isLoggedIn, (req, res) => {
   res.render('profile', { id, name, email });
 });
 
+app.get('/userDashBoard', isLoggedIn, (req, res) => {
+  db.currency.findAll()
+    .then(function(currencies) {
+        console.log(req.route.path)
+        res.render("userDashBoard", { currencies: currencies })
+    })    
+})
+
 app.post('/addToFavorites', isLoggedIn, (req, res) => {
   userId = req.user.id
+  console.log(userId)
   res.redirect('/')
 })
 

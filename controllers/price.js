@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get('/update/:currency', (req, res) => {    
     const currency = req.params.currency
-    console.log(req.params, currency, "***************************************")
+    console.log(req.params, currency, "*******************price controller********************")
     const CoinMarketCap = require('coinmarketcap-api')
     const apiKey = process.env.COIN_API_KEY
     console.log(apiKey)

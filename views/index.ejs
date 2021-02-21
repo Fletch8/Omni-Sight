@@ -4,7 +4,7 @@
         <p class="coin" id="<%= currency.name %>"><%= currency.name %></p>
     </div>        
 <% }) %>
-<script >
+<!-- <script >
     // inital update
     for (let i = 0; i < 4; i++){
             const coins = document.getElementsByClassName('coin').item(i)            
@@ -26,8 +26,8 @@
                     // update dom with values
             })       
         }
-    }, 10000)
-</script>     
+    }, 50000)
+</script>      -->
 
 <% if (currentUser) { %>
     <form action="/addToFavorites" method="POST">
