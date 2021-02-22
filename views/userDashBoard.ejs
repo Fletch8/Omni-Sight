@@ -33,8 +33,8 @@
 <% } %>
 
 <% if (currentUser) { %>
-    <form action="/" method="POST">
-        <label for="currency">Add Favorite Currency</label>
+    <form action="/addToFavorites" method="POST">
+        <!-- <label for="currency">Add Favorite Currency</label> -->
         <select name="currencyId" id="currency" class="form-control" width="50px"required>      
         <% currencies.forEach(function(currency) { %>
             <option value="<%= currency.id %>"><%= currency.name %></option>

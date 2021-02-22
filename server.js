@@ -75,10 +75,23 @@ app.get('/userDashBoard', isLoggedIn, (req, res) => {
     })    
 })
 
-app.post('/addToFavorites', isLoggedIn, (req, res) => {
-  userId = req.user.id
-  console.log(userId)
-  res.redirect('/')
+// Add selected Currency to usersCurrencies
+app.post('/addToFavorites', isLoggedIn, async(req, res) => {
+  try{
+    userId = await req.user.id
+    currencyId = await req.body.currencyId
+    console.log(`*******${userId} ****** ${currencyId}`)
+    
+    db.userscurrencies.create({
+        userId: userId,
+        currencyId: currencyId
+    })
+
+    res.redirect('/userDashBoard')
+
+  }catch(e){
+    console.log(e)
+  }
 })
 
 const PORT = process.env.PORT || 3000;
