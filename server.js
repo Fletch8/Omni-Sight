@@ -82,7 +82,7 @@ app.post('/addToFavorites', isLoggedIn, async(req, res) => {
     currencyId = await req.body.currencyId
     console.log(`*******${userId} ****** ${currencyId}`)
     
-    db.userscurrencies.create({
+    db["usersCurrencies"].create({
         userId: userId,
         currencyId: currencyId
     })
@@ -91,6 +91,7 @@ app.post('/addToFavorites', isLoggedIn, async(req, res) => {
 
   }catch(e){
     console.log(e)
+    res.redirect('/userDashBoard')
   }
 })
 
